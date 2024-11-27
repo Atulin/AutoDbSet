@@ -27,7 +27,7 @@ jobs:
         uses: kzrnm/get-net-sdk-project-versions-action@v2
         id: get-version
         with:
-          proj-path: ${{ PROJECT_NAME }}/${{ PROJECT_NAME }}.csproj
+          proj-path: ${{ env.PROJECT_NAME }}/${{ env.PROJECT_NAME }}.csproj
       - name: Push
-        run: dotnet nuget push ./artifacts/Atulin.${{ PROJECT_NAME }}.${{steps.get-version.outputs.package-version}}.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_KEY }} --skip-duplicate
+        run: dotnet nuget push ./artifacts/Atulin.${{ env.PROJECT_NAME }}.${{steps.get-version.outputs.package-version}}.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_KEY }} --skip-duplicate
         
