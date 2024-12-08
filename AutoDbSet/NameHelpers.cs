@@ -24,7 +24,7 @@ public static class NameHelpers
 		if (last == 'f' && secondLast == 'f') return str + 's';
 		if (last == 'f') return str.Substring(0, str.Length - 1) + "ves";
 
-		return str;
+		return str + "s";
 	}
 	
 	private static readonly char[] Vowels = ['a', 'e', 'i', 'o', 'u'];
