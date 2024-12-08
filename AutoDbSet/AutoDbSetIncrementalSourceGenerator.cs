@@ -41,7 +41,12 @@ public class AutoDbSetIncrementalSourceGenerator : IIncrementalGenerator
           [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
           [global::System.CodeDom.Compiler.GeneratedCode("{{ThisAssembly.Info.Title}}", "{{ThisAssembly.Info.Version}}")]
           public sealed class {{AutoDbSetAttributeName}} : global::System.Attribute
-          {}
+          {
+              /// <summary>
+              /// Sets name to be used in the database.
+              /// </summary>
+              public string? Name { get; set; }
+          }
           #nullable restore   
           """;
 
@@ -63,7 +68,7 @@ public class AutoDbSetIncrementalSourceGenerator : IIncrementalGenerator
           #nullable restore   
           """;
 
-    private record struct DbSetData(string Name, string Namespace, bool IsGlobalNamespace);
+    private record struct DbSetData(string Name, string Namespace, bool IsGlobalNamespace, string? CustomName);
 
     private record struct DbContextData(string Name, string Visibility, string Namespace);
 
@@ -83,7 +88,8 @@ public class AutoDbSetIncrementalSourceGenerator : IIncrementalGenerator
             (gasc, _) => new DbSetData(
                 gasc.TargetSymbol.Name,
                 gasc.TargetSymbol.ContainingNamespace.ToDisplayString(),
-                gasc.TargetSymbol.ContainingNamespace.IsGlobalNamespace
+                gasc.TargetSymbol.ContainingNamespace.IsGlobalNamespace,
+                gasc.Attributes[0].NamedArguments.FirstOrDefault(kv => kv.Key == "Name").Value.Value as string
             )
         ).Collect();
 
@@ -119,7 +125,7 @@ public class AutoDbSetIncrementalSourceGenerator : IIncrementalGenerator
               [global::System.CodeDom.Compiler.GeneratedCode("{{ThisAssembly.Info.Title}}", "{{ThisAssembly.Info.Version}}")]
               {{dbContext.Visibility.ToLowerInvariant()}} partial class {{dbContext.Name}}
               {
-                  {{string.Join("    \n", sets.Select(GenerateDbSet))}}
+                  {{string.Join("\n    ", sets.Select(GenerateDbSet))}}
               }
               #nullable restore   
               """;
@@ -132,7 +138,9 @@ public class AutoDbSetIncrementalSourceGenerator : IIncrementalGenerator
         var ns = data.IsGlobalNamespace
             ? "global::"
             : $"{data.Namespace}.";
+        
+        var propName = data.CustomName ?? data.Name.Pluralize();
 
-        return $$"""public required Microsoft.EntityFrameworkCore.DbSet<{{ns}}{{data.Name}}> {{data.Name}}s { get; init; }""";
+        return $$"""public required Microsoft.EntityFrameworkCore.DbSet<{{ns}}{{data.Name}}> {{propName}} { get; init; }""";
     }
 }

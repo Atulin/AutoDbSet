@@ -1,6 +1,6 @@
 ﻿namespace AutoDbSet.Demo;
 
-[AutoDbSetGenerators.AutoDbSet]
+[AutoDbSetGenerators.AutoDbSet(Name = "People")]
 public class Person
 {
 	public required string Name { get; set; }
