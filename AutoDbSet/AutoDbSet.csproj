@@ -15,7 +15,7 @@
         <IncludeBuildOutput>false</IncludeBuildOutput>
         <PackageOutputPath>$(SolutionDir)artifacts</PackageOutputPath>
         
-        <Version>1.1.1</Version>
+        <Version>1.1.2</Version>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <Title>AutoDbSet</Title>
         <Authors>Atulin</Authors>
@@ -38,8 +38,9 @@
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.8.0" />
-        <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.8.0" />
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.8.0">
+            <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
         <PackageReference Include="ThisAssembly.AssemblyInfo" Version="1.4.3">
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

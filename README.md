@@ -19,9 +19,9 @@ namespace AutoDbSet.Demo;
 [AutoDbSet]
 public class Person
 {
-	public required string Name { get; set; }
-	public required DateOnly Birthday { get; set; }
-	public required float Height { get; set; }
+    public required string Name { get; set; }
+    public required DateOnly Birthday { get; set; }
+    public required float Height { get; set; }
 }
 ```
 
@@ -44,7 +44,7 @@ And watch the magic happen!
 ```cs
 namespace AutoDbSet.Demo;
 
-[System.Runtime.CompilerServices.CompilerGeneratedAttribute]
+[global::System.Runtime.CompilerServices.CompilerGeneratedAttribute]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 [global::System.CodeDom.Compiler.GeneratedCode("AutoDbSet", "1.0.0.0")]
 public partial class MyCoolDbContext
@@ -52,3 +52,39 @@ public partial class MyCoolDbContext
     public required Microsoft.EntityFrameworkCore.DbSet<AutoDbSet.Demo.Person> Persons { get; init; }
 }
 ```
+
+## DbSet naming
+
+By default `AutoDbSet` will try to naively pluralize the names ([here's how](./AutoDbSet/NameHelpers.cs)). It does not,
+therefore, work with verbs that have irregular plural form, nor does it work with non-English languages.
+
+You can, however, give the sets your own, custom name:
+
+```cs
+[AutoDbSetGenerators.AutoDbSet(Name = "People")]
+public class Person
+{
+    public required string Name { get; set; }
+    public required DateOnly Birthday { get; set; }
+    public required float Height { get; set; }
+}
+```
+
+will generate
+
+```cs
+namespace AutoDbSet.Demo;
+
+[global::System.Runtime.CompilerServices.CompilerGeneratedAttribute]
+[global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+[global::System.CodeDom.Compiler.GeneratedCode("AutoDbSet", "1.0.0.0")]
+public partial class MyCoolDbContext
+{
+    public required Microsoft.EntityFrameworkCore.DbSet<AutoDbSet.Demo.Person> People { get; init; }
+}
+```
+
+## Caveats
+
+The generator only works when there's a single `DbContext` with the attribute in the project.
+I plan to add support for multiple contexts in a future update.
