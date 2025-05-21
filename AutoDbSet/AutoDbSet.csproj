@@ -15,11 +15,12 @@
         <IncludeBuildOutput>false</IncludeBuildOutput>
         <PackageOutputPath>$(SolutionDir)artifacts</PackageOutputPath>
         
-        <Version>1.1.2</Version>
+        <Version>1.1.3</Version>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <Title>AutoDbSet</Title>
         <Authors>Atulin</Authors>
         <PackageProjectUrl>https://github.com/Atulin/AutoDbSets</PackageProjectUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageLicenseFile>LICENSE</PackageLicenseFile>
         <RepositoryUrl>https://github.com/Atulin/AutoDbSets</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
