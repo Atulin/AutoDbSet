@@ -1,6 +1,6 @@
 [![NuGet Version](https://img.shields.io/nuget/v/Atulin.AutoDbSet?style=for-the-badge)](https://www.nuget.org/packages/Atulin.AutoDbSet/)
 ![NuGet Downloads](https://img.shields.io/nuget/dt/Atulin.AutoDbSet?style=for-the-badge)
-![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/Atulin/AutoDbSet/nuget.yml?style=for-the-badge)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/Atulin/AutoDbSet/publish.yml?style=for-the-badge)
 [![GitHub License](https://img.shields.io/github/license/Atulin/AutoDbSet?style=for-the-badge)](./LICENSE)
 
 # AutoDbSet
