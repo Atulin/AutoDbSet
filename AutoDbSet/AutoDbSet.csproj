@@ -11,8 +11,8 @@
         <Authors>Atulin</Authors>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <PackageProjectUrl>https://github.com/Atulin/AutoDbSets</PackageProjectUrl>
-        <RepositoryUrl>https://github.com/Atulin/AutoDbSets</RepositoryUrl>
+        <PackageProjectUrl>https://github.com/Atulin/AutoDbSet</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/Atulin/AutoDbSet</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <PackageTags>efcore entity-framework-core source-generator</PackageTags>
 

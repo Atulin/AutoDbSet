@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="AutoDbSet.Demo/AutoDbSet.Demo.csproj" />
+  <Project Path="AutoDbSet/AutoDbSet.csproj" />
+</Solution>

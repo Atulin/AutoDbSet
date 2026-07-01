@@ -29,7 +29,7 @@ jobs:
         run: dotnet build -c Release --no-restore
 
       - name: Package
-        run: dotnet pack AutodbSet/AutodbSet.csproj -c Release --no-build -o ./nupkg
+        run: dotnet pack AutoDbSet/AutoDbSet.csproj -c Release --no-build -o ./nupkg
 
       - name: NuGet login
         uses: NuGet/login@v1
