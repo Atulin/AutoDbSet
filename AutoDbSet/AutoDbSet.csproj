@@ -7,7 +7,7 @@
         
         <PackageId>Atulin.AutoDbSet</PackageId>
         <Title>AutoDbSet</Title>
-        <Version>1.2.0</Version>
+        <Version>1.2.1</Version>
         <Authors>Atulin</Authors>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -24,6 +24,7 @@
 
     <ItemGroup>
         <None Include="../README.md" Pack="true" PackagePath="\"/>
+        <None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
     </ItemGroup>
     
     <ItemGroup>
