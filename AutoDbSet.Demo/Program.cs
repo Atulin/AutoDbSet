@@ -1,6 +1,2 @@
-﻿using AutoDbSetGenerators;
-using Microsoft.EntityFrameworkCore;
+﻿Console.WriteLine("Hello World!");
 
-Console.WriteLine("Hello World!");
-
-return;
