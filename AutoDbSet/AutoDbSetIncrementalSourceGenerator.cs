@@ -68,9 +68,9 @@ public class AutoDbSetIncrementalSourceGenerator : IIncrementalGenerator
 		  #nullable restore   
 		  """;
 
-	private record struct DbSetData(string Name, string Namespace, bool IsGlobalNamespace, string? CustomName);
+	private record DbSetData(string Name, string Namespace, bool IsGlobalNamespace, string? CustomName);
 
-	private record struct DbContextData(string Name, string Visibility, string Namespace);
+	private record DbContextData(string Name, string Visibility, string Namespace);
 
 	public void Initialize(IncrementalGeneratorInitializationContext context)
 	{

@@ -7,7 +7,7 @@
         
         <PackageId>Atulin.AutoDbSet</PackageId>
         <Title>AutoDbSet</Title>
-        <Version>1.2.1</Version>
+        <Version>1.2.2</Version>
         <Authors>Atulin</Authors>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -22,6 +22,13 @@
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     </PropertyGroup>
 
+    <PropertyGroup>
+        <MeziantouPolyfill_IncludedPolyfills>
+            T:System.Runtime.CompilerServices.CompilerRequiredAttribute;
+            T:System.Runtime.CompilerServices.IsExternalInit;
+        </MeziantouPolyfill_IncludedPolyfills>
+    </PropertyGroup>
+
     <ItemGroup>
         <None Include="../README.md" Pack="true" PackagePath="\"/>
         <None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
@@ -29,6 +36,10 @@
     
     <ItemGroup>
         <PackageReference Include="AssemblyMetadata.Generators" Version="2.2.0">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Meziantou.Polyfill" Version="1.0.157">
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
